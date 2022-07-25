@@ -1,0 +1,8 @@
+﻿<h3>ChildPage</h3>
+
+<button class="btn btn-primary" @onclick="OnRemoteIncrementCount">... or Click me</button>
+
+@code {
+
+    [Parameter] public EventCallback OnRemoteIncrementCount { get; set; } 
+}
