@@ -1,0 +1,17 @@
+﻿<h3>SecondChild</h3>
+
+<button class="btn btn-primary" @onclick="OnChildIncrementCount">... or Click me to Invoke It</button>
+
+@code {
+        
+    [Parameter] public EventCallback OnRemoteIncrementCount { get; set; } 
+
+    async Task OnChildIncrementCount()
+    {
+        //The second Child button allows you to Do other things...
+        //before calling the paramertered EventCallback
+
+        //Use the Parameter Event Callback to call the parent's method
+        await OnRemoteIncrementCount.InvokeAsync();
+    }
+}
