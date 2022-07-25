@@ -1,8 +1,18 @@
 ﻿<h3>ChildPage</h3>
 
-<button class="btn btn-primary" @onclick="OnRemoteIncrementCount">... or Click me</button>
+<button class="btn btn-primary" @onclick="OnRemoteIncrementCount">... or Click me to Do It</button>
+
+<button class="btn btn-primary" @onclick="OnChildIncrementCount">... or Click me to Invoke It</button>
 
 @code {
 
     [Parameter] public EventCallback OnRemoteIncrementCount { get; set; } 
+
+    async Task OnChildIncrementCount()
+    {
+        //Do other things...
+
+        //Use the Parameter Event Callback to call the parent's method
+        await OnRemoteIncrementCount.InvokeAsync();
+    }
 }
